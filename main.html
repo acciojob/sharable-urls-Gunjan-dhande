@@ -2,7 +2,31 @@
 <html>
   <body>
     <script type="text/javascript" src="./script.js">
+		// your code here
+document.getElementById("urlForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission to avoid page reload
+
+            // Get values from the input fields
+            const name = document.getElementById("name").value;
+            const year = document.getElementById("year").value;
+
+            // Update the h3 element with the new URL including the query string
+            const queryString = `?name=${encodeURIComponent(name)}&year=${encodeURIComponent(year)}`;
+            document.getElementById("url").textContent = `https://localhost:8080/${queryString}`;
+        });
 </script>
   </body>
+	<h3 id="url">https://localhost:8080/</h3>
+	<form>
+		<label for="name">Name:</label><br>
+		<input type="text" id="name" name="name"><br>
+		
+		<label for="year">Graduation year:</label><br>
+		<input type="number" id="year" name="year">
+		<br>
+
+		<button type="submit" id="button">Submit</button>
+		
+	</form>
 
 </html>
